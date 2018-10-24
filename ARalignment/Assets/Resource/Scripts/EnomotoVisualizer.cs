@@ -44,8 +44,7 @@ public class EnomotoVisualizer : MonoBehaviour
         sizeX.text = "X : " + Image.ExtentX.ToString();
         var sizeZ = GameObject.Find("Canvas/sizeZ").GetComponent<Text>();
         sizeZ.text = "Z : " + Image.ExtentZ.ToString();
-        var center = GameObject.Find("Canvas/center").GetComponent<Text>();
-        center.text = "cal : " + ((float)1.9 * Vector3.back);
+        
         //center.text = "C : " + Image.CenterPose.ToString();
     }
 }
