@@ -125,6 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enomoto: {fileID: 1487504787846596}
-  offsetX: 0.863
-  offsetZ: 0.137
-  offsetY: -0.156
+  offsetX: 0.882
+  offsetZ: -0.055
+  offsetY: -0.18
