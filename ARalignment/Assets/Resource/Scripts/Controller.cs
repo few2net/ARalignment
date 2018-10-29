@@ -98,17 +98,17 @@ public class Controller : MonoBehaviour
 
         if (mode == 88)
         {
-            Enomoto.offsetX += 0.05f;
+            Enomoto.offsetX += 0.005f;
         }
 
         else if (mode == 89)
         {
-            Enomoto.offsetY += 0.05f;
+            Enomoto.offsetY += 0.005f;
         }
 
         else if (mode == 90)
         {
-            Enomoto.offsetZ += 0.05f;
+            Enomoto.offsetZ += 0.005f;
         }
     }
 
@@ -119,17 +119,17 @@ public class Controller : MonoBehaviour
 
         if (mode == 88)
         {
-            Enomoto.offsetX -= 0.05f;
+            Enomoto.offsetX -= 0.005f;
         }
 
         else if (mode == 89)
         {
-            Enomoto.offsetY -= 0.05f;
+            Enomoto.offsetY -= 0.005f;
         }
 
         else if (mode == 90)
         {
-            Enomoto.offsetZ -= 0.05f;
+            Enomoto.offsetZ -= 0.005f;
         }
     }
 
