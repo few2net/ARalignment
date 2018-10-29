@@ -73,5 +73,65 @@ public class Controller : MonoBehaviour
         FitToScanOverlay.SetActive(true);
     }
 
+    /// <summary>
+    /// button code
+    /// </summary>
+
+    private int mode = 88;
+
+    public void changeMode()
+    {
+        if (mode == 90)
+        {
+            mode -= 3;
+        }
+        mode += 1;
+
+        var mode_btn = GameObject.Find("Canvas/mode_btn/Text").GetComponent<Text>();
+        mode_btn.text = "" + (char)mode;
+    }
+
+    public void increase()
+    {
+        EnomotoVisualizer Enomoto = null;
+        m_Visualizers.TryGetValue(0, out Enomoto);
+
+        if (mode == 88)
+        {
+            Enomoto.offsetX += 0.05f;
+        }
+
+        else if (mode == 89)
+        {
+            Enomoto.offsetY += 0.05f;
+        }
+
+        else if (mode == 90)
+        {
+            Enomoto.offsetZ += 0.05f;
+        }
+    }
+
+    public void decrease()
+    {
+        EnomotoVisualizer Enomoto = null;
+        m_Visualizers.TryGetValue(0, out Enomoto);
+
+        if (mode == 88)
+        {
+            Enomoto.offsetX -= 0.05f;
+        }
+
+        else if (mode == 89)
+        {
+            Enomoto.offsetY -= 0.05f;
+        }
+
+        else if (mode == 90)
+        {
+            Enomoto.offsetZ -= 0.05f;
+        }
+    }
+
 }
 
