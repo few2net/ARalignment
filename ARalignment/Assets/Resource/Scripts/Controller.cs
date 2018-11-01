@@ -87,7 +87,7 @@ public class Controller : MonoBehaviour
         }
         mode += 1;
 
-        var mode_btn = GameObject.Find("Canvas/mode_btn/Text").GetComponent<Text>();
+        var mode_btn = GameObject.Find("Canvas_menu2/mode_btn/Text").GetComponent<Text>();
         mode_btn.text = "" + (char)mode;
     }
 

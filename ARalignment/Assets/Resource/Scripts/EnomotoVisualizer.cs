@@ -34,11 +34,11 @@ public class EnomotoVisualizer : MonoBehaviour
         Enomoto.transform.localPosition = new Vector3(offsetX, offsetY, offsetZ);
         Enomoto.SetActive(true);
 
-        var posX = GameObject.Find("Canvas/posX").GetComponent<Text>();
+        var posX = GameObject.Find("Canvas_menu2/posX").GetComponent<Text>();
         posX.text = "X : " + offsetX;
-        var posY = GameObject.Find("Canvas/posY").GetComponent<Text>();
+        var posY = GameObject.Find("Canvas_menu2/posY").GetComponent<Text>();
         posY.text = "Y : " + offsetY;
-        var posZ = GameObject.Find("Canvas/posZ").GetComponent<Text>();
+        var posZ = GameObject.Find("Canvas_menu2/posZ").GetComponent<Text>();
         posZ.text = "Z : " + offsetZ;
 
     }
