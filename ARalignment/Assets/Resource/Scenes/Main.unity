@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb29585d1c1d50047815f872fe20c24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VisualizePrefab: {fileID: 114815874485917586, guid: c7c840ac372c5b14a8a36e6d4b069fe7,
+  VisualizePrefab: {fileID: 114726101572864332, guid: 51cdb8503a794cd498c4ef1b91bc7b77,
     type: 2}
   FitToScanOverlay: {fileID: 1174077724}
 --- !u!4 &318482229
@@ -651,6 +651,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11400000, guid: e22eefc90d6270247bdf07974e0e9b52,
         type: 2}
+    - target: {fileID: 1772147192650458, guid: c10877f7cd5764de18d46d7b777d1faa, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c10877f7cd5764de18d46d7b777d1faa, type: 2}
   m_IsPrefabAsset: 0
