@@ -11,11 +11,12 @@ public class Interface : MonoBehaviour
     public Canvas Canvas1;
     public Canvas Canvas2;
 
+    public static DetectedPlane default_plane;
+
     private int menu = 0;
     private int next = 1;
 
     private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
-    private List<AugmentedImage> m_TempAugmentedImages = new List<AugmentedImage>();
 
     // Use this for initialization
     void Awake()
@@ -23,6 +24,8 @@ public class Interface : MonoBehaviour
         Canvas0.gameObject.SetActive(true);
         Canvas1.gameObject.SetActive(false);
         Canvas2.gameObject.SetActive(false);
+        next = 1;
+        default_plane = null;
     }
 
     void Update()
@@ -72,5 +75,7 @@ public class Interface : MonoBehaviour
     public void lock_btn_tricked()
     {
         next = 2;
+        default_plane = CurserRay.plane;
+        
     }
 }

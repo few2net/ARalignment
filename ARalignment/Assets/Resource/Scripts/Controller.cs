@@ -13,8 +13,6 @@ public class Controller : MonoBehaviour
 {
 
     public EnomotoVisualizer VisualizePrefab;
-    public GameObject Canvas0;
-    public GameObject Canvas1;
     public GameObject FitToScanOverlay;
     
     private Dictionary<int, EnomotoVisualizer> m_Visualizers
@@ -37,20 +35,6 @@ public class Controller : MonoBehaviour
         {
             return;
         }
-        /*
-        // Hide snackbar when currently tracking at least one plane.
-        Session.GetTrackables<DetectedPlane>(m_AllPlanes);
-        bool showSearchingUI = true;
-        for (int i = 0; i < m_AllPlanes.Count; i++)
-        {
-            if (m_AllPlanes[i].TrackingState == TrackingState.Tracking)
-            {
-                showSearchingUI = false;
-                break;
-            }
-        }
-        Canvas0.SetActive(showSearchingUI);
-        Canvas1.SetActive(!showSearchingUI);*/
 
         // Get updated augmented images for this frame.
         Session.GetTrackables<AugmentedImage>(m_TempAugmentedImages, TrackableQueryFilter.Updated);
