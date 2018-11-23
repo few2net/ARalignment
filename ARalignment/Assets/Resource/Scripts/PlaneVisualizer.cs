@@ -33,7 +33,7 @@ namespace GoogleARCore.Examples.Common
 
         private readonly Color[] k_PlaneColors = new Color[]
         {
-            new Color(1.0f, 1.0f, 1.0f),
+            //new Color(1.0f, 1.0f, 1.0f),
             new Color(0.956f, 0.262f, 0.211f),
             new Color(0.913f, 0.117f, 0.388f),
             new Color(0.611f, 0.152f, 0.654f),
@@ -49,6 +49,8 @@ namespace GoogleARCore.Examples.Common
             new Color(1.0f, 0.921f, 0.231f),
             new Color(1.0f, 0.756f, 0.027f)
         };
+
+        private Color default_color;
 
         private DetectedPlane m_DetectedPlane;
 
@@ -79,6 +81,17 @@ namespace GoogleARCore.Examples.Common
         /// </summary>
         public void Update()
         {
+            /////////// If curser hit the plane////////////
+            if(CurserRay.plane == m_DetectedPlane)
+            {
+                TrickedColor();
+            }
+            else
+            {
+                ResetColor();
+            }
+            //////////////////////////////////////////////
+
             if (m_DetectedPlane == null)
             {
                 return;
@@ -106,10 +119,21 @@ namespace GoogleARCore.Examples.Common
         public void Initialize(DetectedPlane plane)
         {
             m_DetectedPlane = plane;
-            m_MeshRenderer.material.SetColor("_GridColor", k_PlaneColors[s_PlaneCount++ % k_PlaneColors.Length]);
+            default_color = k_PlaneColors[s_PlaneCount++ % k_PlaneColors.Length];
+            m_MeshRenderer.material.SetColor("_GridColor", default_color);
             m_MeshRenderer.material.SetFloat("_UvRotation", Random.Range(0.0f, 360.0f));
 
             Update();
+        }
+
+        private void TrickedColor()
+        {
+            m_MeshRenderer.material.SetColor("_GridColor", Color.white);
+        }
+
+        private void ResetColor()
+        {
+            m_MeshRenderer.material.SetColor("_GridColor", default_color);
         }
 
         /// <summary>
