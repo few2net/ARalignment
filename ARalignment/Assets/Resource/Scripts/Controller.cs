@@ -37,7 +37,7 @@ public class Controller : MonoBehaviour
         {
             return;
         }
-
+        /*
         // Hide snackbar when currently tracking at least one plane.
         Session.GetTrackables<DetectedPlane>(m_AllPlanes);
         bool showSearchingUI = true;
@@ -50,7 +50,7 @@ public class Controller : MonoBehaviour
             }
         }
         Canvas0.SetActive(showSearchingUI);
-        Canvas1.SetActive(!showSearchingUI);
+        Canvas1.SetActive(!showSearchingUI);*/
 
         // Get updated augmented images for this frame.
         Session.GetTrackables<AugmentedImage>(m_TempAugmentedImages, TrackableQueryFilter.Updated);
