@@ -7,11 +7,6 @@ using UnityEngine.UI;
 public class CurserRay : MonoBehaviour {
 
     public static DetectedPlane plane;
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -36,5 +31,15 @@ public class CurserRay : MonoBehaviour {
         {
             plane = null;
         }
+
+        if (plane == null)
+        {
+            GameObject.Find("Canvas1/lock_btn").GetComponent<Button>().interactable = false;
+        }
+        else
+        {
+            GameObject.Find("Canvas1/lock_btn").GetComponent<Button>().interactable = true;
+        }
     }
+
 }
