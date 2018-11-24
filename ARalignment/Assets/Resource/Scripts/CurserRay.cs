@@ -24,7 +24,6 @@ public class CurserRay : MonoBehaviour {
             {
                 Debug.Log("Hit DetectedPlane");
                 plane = (DetectedPlane)hit.Trackable;
-                print(plane.CenterPose.position.y);
             } 
         }
         else

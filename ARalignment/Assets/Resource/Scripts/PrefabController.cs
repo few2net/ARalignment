@@ -9,7 +9,7 @@ using UnityEngine.UI;
 /// </summary>
 /// 
 
-public class Controller : MonoBehaviour
+public class PrefabController : MonoBehaviour
 {
 
     public EnomotoVisualizer VisualizePrefab;
@@ -18,7 +18,6 @@ public class Controller : MonoBehaviour
     private Dictionary<int, EnomotoVisualizer> m_Visualizers
             = new Dictionary<int, EnomotoVisualizer>();
 
-    private List<DetectedPlane> m_AllPlanes = new List<DetectedPlane>();
     private List<AugmentedImage> m_TempAugmentedImages = new List<AugmentedImage>();
 
     // Update is called once per frame
@@ -47,11 +46,27 @@ public class Controller : MonoBehaviour
             m_Visualizers.TryGetValue(image.DatabaseIndex, out visualizer);
             if (image.TrackingState == TrackingState.Tracking && visualizer == null)
             {
+                
+                Pose p = set_proper_pose(image.CenterPose);
+
                 // Create an anchor to ensure that ARCore keeps tracking this augmented image.
-                Anchor anchor = image.CreateAnchor(image.CenterPose);
+                //Anchor anchor = image.CreateAnchor(p);
+                Anchor anchor = AppController.default_plane.CreateAnchor(p);
+                //Anchor anchor = Session.CreateAnchor(p);
                 visualizer = (EnomotoVisualizer)Instantiate(VisualizePrefab, anchor.transform);
+
+                ////////////////////////////////////////////////////////////////////////////// <debug part>
+                print("plane : " + AppController.default_plane.CenterPose);
+                print(AppController.default_plane.CenterPose.rotation.eulerAngles);
+                print("image : " + image.CenterPose);
+                print(image.CenterPose.rotation.eulerAngles);
+                print("pose : " + p);
+                print(p.rotation.eulerAngles);
+                ////////////////////////////////////////////////////////////////////////////// </debug part>
+
                 visualizer.Image = image;
                 m_Visualizers.Add(image.DatabaseIndex, visualizer);
+                
             }
             else if (image.TrackingState == TrackingState.Stopped && visualizer != null)
             {
@@ -73,9 +88,13 @@ public class Controller : MonoBehaviour
         FitToScanOverlay.SetActive(true);
     }
 
-    /// <summary>
-    /// button code
-    /// </summary>
+    private Pose set_proper_pose(Pose image)
+    {
+        Pose pose = new Pose(image.position, AppController.default_plane.CenterPose.rotation);
+        pose.position.y = AppController.default_plane.CenterPose.position.y;
+        pose.rotation.SetLookRotation(image.right);
+        return pose;
+    }
     
     private int mode = 0;
     private int axis = 0;
@@ -117,7 +136,7 @@ public class Controller : MonoBehaviour
         }
         else if (mode == 0 && axis == 1)
         {
-            Enomoto.offsetY += 0.005f;
+           // Enomoto.offsetY += 0.005f;
         }
         else if (mode == 0 && axis == 2)
         {
@@ -125,7 +144,7 @@ public class Controller : MonoBehaviour
         }
         else if (mode == 1 && axis == 0)
         {
-            Enomoto.transform.Rotate(Vector3.right);
+            //Enomoto.transform.Rotate(Vector3.right);
         }
         else if (mode == 1 && axis == 1)
         {
@@ -133,7 +152,7 @@ public class Controller : MonoBehaviour
         }
         else if (mode == 1 && axis == 2)
         {
-            Enomoto.transform.Rotate(Vector3.forward);
+           // Enomoto.transform.Rotate(Vector3.forward);
         }
     }
 
@@ -148,7 +167,7 @@ public class Controller : MonoBehaviour
         }
         else if (mode == 0 && axis == 1)
         {
-            Enomoto.offsetY -= 0.005f;
+            //Enomoto.offsetY -= 0.005f;
         }
         else if (mode == 0 && axis == 2)
         {
@@ -156,7 +175,7 @@ public class Controller : MonoBehaviour
         }
         else if (mode == 1 && axis == 0)
         {
-            Enomoto.transform.Rotate(Vector3.left);
+           // Enomoto.transform.Rotate(Vector3.left);
         }
         else if (mode == 1 && axis == 1)
         {
@@ -164,7 +183,7 @@ public class Controller : MonoBehaviour
         }
         else if (mode == 1 && axis == 2)
         {
-            Enomoto.transform.Rotate(Vector3.back);
+           // Enomoto.transform.Rotate(Vector3.back);
         }
     }
 

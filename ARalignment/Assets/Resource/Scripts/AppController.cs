@@ -4,7 +4,7 @@ using GoogleARCore;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Interface : MonoBehaviour
+public class AppController : MonoBehaviour
 {
 
     public Canvas Canvas0;
