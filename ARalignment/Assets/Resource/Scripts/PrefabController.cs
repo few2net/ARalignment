@@ -57,6 +57,9 @@ public class PrefabController : MonoBehaviour
 
                 ////////////////////////////////////////////////////////////////////////////// <debug part>
                 print("plane : " + AppController.default_plane.CenterPose);
+                print("ri : " + AppController.default_plane.CenterPose.right);
+                print("up : " + AppController.default_plane.CenterPose.up);
+                print("fw : " + AppController.default_plane.CenterPose.forward);
                 print(AppController.default_plane.CenterPose.rotation.eulerAngles);
                 print("image : " + image.CenterPose);
                 print(image.CenterPose.rotation.eulerAngles);
@@ -92,7 +95,14 @@ public class PrefabController : MonoBehaviour
     {
         Pose pose = new Pose(image.position, AppController.default_plane.CenterPose.rotation);
         pose.position.y = AppController.default_plane.CenterPose.position.y;
-        pose.rotation.SetLookRotation(image.right);
+        pose.rotation.SetLookRotation(Vector3.Scale(image.right,new Vector3(1,0,1)));
+
+        ////////////////////////////////////////////////////////////////////////////// <debug part>
+        print("imr: "+image.right);
+        print(pose.right);
+        print(pose.up);
+        print(pose.forward);
+        ////////////////////////////////////////////////////////////////////////////// <debug part>
         return pose;
     }
     
