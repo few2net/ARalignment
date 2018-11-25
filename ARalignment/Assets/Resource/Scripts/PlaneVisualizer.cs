@@ -33,7 +33,7 @@ namespace GoogleARCore.Examples.Common
 
         private readonly Color[] k_PlaneColors = new Color[]
         {
-            //new Color(1.0f, 1.0f, 1.0f),
+            new Color(1.0f, 1.0f, 1.0f),
             new Color(0.956f, 0.262f, 0.211f),
             new Color(0.913f, 0.117f, 0.388f),
             new Color(0.611f, 0.152f, 0.654f),
@@ -128,7 +128,7 @@ namespace GoogleARCore.Examples.Common
 
         private void TrickedColor()
         {
-            m_MeshRenderer.material.SetColor("_GridColor", Color.white);
+            m_MeshRenderer.material.SetColor("_GridColor", Color.green);
         }
 
         private void ResetColor()

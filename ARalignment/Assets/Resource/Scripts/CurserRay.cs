@@ -34,10 +34,12 @@ public class CurserRay : MonoBehaviour {
         if (plane == null)
         {
             GameObject.Find("Canvas1/lock_btn").GetComponent<Button>().interactable = false;
+            GameObject.Find("Canvas1/center_curser").GetComponent<Image>().color = Color.red;
         }
         else
         {
             GameObject.Find("Canvas1/lock_btn").GetComponent<Button>().interactable = true;
+            GameObject.Find("Canvas1/center_curser").GetComponent<Image>().color = Color.green;
         }
     }
 

@@ -20,6 +20,8 @@ public class PrefabController : MonoBehaviour
 
     private List<AugmentedImage> m_TempAugmentedImages = new List<AugmentedImage>();
 
+   // private Quaternion old = AppController.default_plane.CenterPose.rotation;
+
     // Update is called once per frame
     void Update()
     {
@@ -35,8 +37,18 @@ public class PrefabController : MonoBehaviour
             return;
         }
 
+        //if (AppController.default_plane.CenterPose.rotation != old)
+        //{
+       // print("plane updates! : "+ AppController.default_plane.CenterPose.position.x + "   " +
+         //   AppController.default_plane.CenterPose.position.y + "   " +
+          //  AppController.default_plane.CenterPose.position.z + " // " + AppController.default_plane.CenterPose.rotation.eulerAngles);
+           // old = AppController.default_plane.CenterPose.rotation;
+           // print("rotation = " + old.eulerAngles);
+        //}
+
         // Get updated augmented images for this frame.
         Session.GetTrackables<AugmentedImage>(m_TempAugmentedImages, TrackableQueryFilter.Updated);
+
         
         // Create visualizers and anchors for updated augmented images that are tracking and do not previously
         // have a visualizer. Remove visualizers for stopped images.
@@ -54,15 +66,8 @@ public class PrefabController : MonoBehaviour
                 Anchor anchor = AppController.default_plane.CreateAnchor(p);
                 //Anchor anchor = Session.CreateAnchor(p);
                 visualizer = (EnomotoVisualizer)Instantiate(VisualizePrefab, anchor.transform);
-
-                ////////////////////////////////////////////////////////////////////////////// <debug part>
                 print("plane : " + AppController.default_plane.CenterPose);
-                print("ri : " + AppController.default_plane.CenterPose.right);
-                print("up : " + AppController.default_plane.CenterPose.up);
-                print("fw : " + AppController.default_plane.CenterPose.forward);
                 print(AppController.default_plane.CenterPose.rotation.eulerAngles);
-                print("image : " + image.CenterPose);
-                print(image.CenterPose.rotation.eulerAngles);
                 print("pose : " + p);
                 print(p.rotation.eulerAngles);
                 ////////////////////////////////////////////////////////////////////////////// </debug part>
@@ -96,13 +101,6 @@ public class PrefabController : MonoBehaviour
         Pose pose = new Pose(image.position, AppController.default_plane.CenterPose.rotation);
         pose.position.y = AppController.default_plane.CenterPose.position.y;
         pose.rotation.SetLookRotation(Vector3.Scale(image.right,new Vector3(1,0,1)));
-
-        ////////////////////////////////////////////////////////////////////////////// <debug part>
-        print("imr: "+image.right);
-        print(pose.right);
-        print(pose.up);
-        print(pose.forward);
-        ////////////////////////////////////////////////////////////////////////////// <debug part>
         return pose;
     }
     
@@ -118,8 +116,10 @@ public class PrefabController : MonoBehaviour
             mode -= 2;
         }
         mode += 1;
-
         var mode_btn = GameObject.Find("Canvas/mode_btn/Text").GetComponent<Text>();
+        print(mode);
+        print(mode_text);
+        
         mode_btn.text = mode_text[mode];
     }
 
@@ -146,7 +146,7 @@ public class PrefabController : MonoBehaviour
         }
         else if (mode == 0 && axis == 1)
         {
-           // Enomoto.offsetY += 0.005f;
+            Enomoto.offsetY += 0.005f;
         }
         else if (mode == 0 && axis == 2)
         {
@@ -154,7 +154,7 @@ public class PrefabController : MonoBehaviour
         }
         else if (mode == 1 && axis == 0)
         {
-            //Enomoto.transform.Rotate(Vector3.right);
+            Enomoto.transform.Rotate(Vector3.right);
         }
         else if (mode == 1 && axis == 1)
         {
@@ -162,7 +162,7 @@ public class PrefabController : MonoBehaviour
         }
         else if (mode == 1 && axis == 2)
         {
-           // Enomoto.transform.Rotate(Vector3.forward);
+            Enomoto.transform.Rotate(Vector3.forward);
         }
     }
 
@@ -177,7 +177,7 @@ public class PrefabController : MonoBehaviour
         }
         else if (mode == 0 && axis == 1)
         {
-            //Enomoto.offsetY -= 0.005f;
+            Enomoto.offsetY -= 0.005f;
         }
         else if (mode == 0 && axis == 2)
         {
@@ -185,7 +185,7 @@ public class PrefabController : MonoBehaviour
         }
         else if (mode == 1 && axis == 0)
         {
-           // Enomoto.transform.Rotate(Vector3.left);
+            Enomoto.transform.Rotate(Vector3.left);
         }
         else if (mode == 1 && axis == 1)
         {
@@ -193,7 +193,7 @@ public class PrefabController : MonoBehaviour
         }
         else if (mode == 1 && axis == 2)
         {
-           // Enomoto.transform.Rotate(Vector3.back);
+            Enomoto.transform.Rotate(Vector3.back);
         }
     }
 
