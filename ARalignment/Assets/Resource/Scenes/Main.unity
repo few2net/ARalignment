@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb29585d1c1d50047815f872fe20c24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VisualizePrefab: {fileID: 114717078585658294, guid: 51cdb8503a794cd498c4ef1b91bc7b77,
+  VisualizePrefab: {fileID: 114893806176407252, guid: 4c6183b8f0920cb4fa97aa1f7d4f3ed0,
     type: 2}
   FitToScanOverlay: {fileID: 1174077724}
 --- !u!4 &318482229
@@ -592,6 +592,11 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 367987793}
   m_CullTransparentMesh: 0
+--- !u!1 &383870958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1009122339136928, guid: f6d2602888170344d9c4f2fe2d3d8efc,
+    type: 2}
+  m_PrefabInternal: {fileID: 1548558438}
 --- !u!1 &398876153
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,6 +774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741d9d8b54647f84a91b187a0e8f5691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  point_cloud: {fileID: 383870958}
   Canvas0: {fileID: 712577218}
   Canvas1: {fileID: 1878913060}
   Canvas2: {fileID: 1281092623}
@@ -2153,6 +2159,10 @@ Prefab:
     - target: {fileID: 4981749791750642, guid: f6d2602888170344d9c4f2fe2d3d8efc, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1009122339136928, guid: f6d2602888170344d9c4f2fe2d3d8efc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d2602888170344d9c4f2fe2d3d8efc, type: 2}

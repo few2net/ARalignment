@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class AppController : MonoBehaviour
 {
-
+    public GameObject point_cloud;
     public Canvas Canvas0;
     public Canvas Canvas1;
     public Canvas Canvas2;
@@ -21,6 +21,7 @@ public class AppController : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+        point_cloud.gameObject.SetActive(true);
         Canvas0.gameObject.SetActive(true);
         Canvas1.gameObject.SetActive(false);
         Canvas2.gameObject.SetActive(false);
