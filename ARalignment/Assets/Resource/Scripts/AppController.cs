@@ -12,6 +12,7 @@ public class AppController : MonoBehaviour
     public Canvas Canvas2;
 
     public static DetectedPlane default_plane;
+    public static bool toggle_state = true;
 
     private int menu = 0;
     private int next = 1;
@@ -78,5 +79,10 @@ public class AppController : MonoBehaviour
         next = 2;
         default_plane = CurserRay.plane;
         
+    }
+
+    public void toggle_tricked(bool val)
+    {
+        toggle_state = val;
     }
 }

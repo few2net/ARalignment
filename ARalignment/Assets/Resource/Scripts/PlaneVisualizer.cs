@@ -67,6 +67,7 @@ namespace GoogleARCore.Examples.Common
 
         private MeshRenderer m_MeshRenderer;
 
+
         /// <summary>
         /// The Unity Awake() method.
         /// </summary>
@@ -105,6 +106,14 @@ namespace GoogleARCore.Examples.Common
             {
                 m_MeshRenderer.enabled = false;
                 return;
+            }
+            else if (!AppController.toggle_state)
+            {
+                if(AppController.default_plane != m_DetectedPlane)
+                {
+                    m_MeshRenderer.enabled = false;
+                    return;
+                }
             }
 
             m_MeshRenderer.enabled = true;
