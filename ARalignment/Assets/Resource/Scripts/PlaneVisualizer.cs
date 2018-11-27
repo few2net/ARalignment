@@ -107,9 +107,18 @@ namespace GoogleARCore.Examples.Common
                 m_MeshRenderer.enabled = false;
                 return;
             }
-            else if (!AppController.toggle_state)
+
+            if (!AppController.others_tgl_state)
             {
                 if(AppController.default_plane != m_DetectedPlane)
+                {
+                    m_MeshRenderer.enabled = false;
+                    return;
+                }
+            }
+            if (!AppController.default_tgl_state)
+            {
+                if (AppController.default_plane == m_DetectedPlane)
                 {
                     m_MeshRenderer.enabled = false;
                     return;

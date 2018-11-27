@@ -12,7 +12,8 @@ public class AppController : MonoBehaviour
     public Canvas Canvas2;
 
     public static DetectedPlane default_plane;
-    public static bool toggle_state = true;
+    public static bool others_tgl_state = true;
+    public static bool default_tgl_state = true;
 
     private int menu = 0;
     private int next = 1;
@@ -81,8 +82,13 @@ public class AppController : MonoBehaviour
         
     }
 
-    public void toggle_tricked(bool val)
+    public void others_tgl_tricked(bool val)
     {
-        toggle_state = val;
+        others_tgl_state = val;
+    }
+
+    public void default_tgl_tricked(bool val)
+    {
+        default_tgl_state = val;
     }
 }
