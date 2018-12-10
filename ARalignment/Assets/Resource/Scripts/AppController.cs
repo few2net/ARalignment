@@ -59,7 +59,7 @@ public class AppController : MonoBehaviour
         
         if (menu == 0)
         {
-            Awake();
+            recall();
         }
         else if (menu == 1)
         {
@@ -73,6 +73,16 @@ public class AppController : MonoBehaviour
             Canvas1.gameObject.SetActive(false);
             Canvas2.gameObject.SetActive(true);
         }
+    }
+
+    public void recall()
+    {
+        point_cloud.gameObject.SetActive(true);
+        Canvas0.gameObject.SetActive(true);
+        Canvas1.gameObject.SetActive(false);
+        Canvas2.gameObject.SetActive(false);
+        next = 1;
+        default_plane = null;
     }
 
     public void lock_btn_tricked()

@@ -646,7 +646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb29585d1c1d50047815f872fe20c24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VisualizePrefab: {fileID: 114809006847436016, guid: 1cafe049444e7ce4bb8a840bbb026a24,
+  VisualizePrefab: {fileID: 114589919475140164, guid: 5f7b856e5a761ae4bb80facf6f3c9a91,
     type: 2}
   FitToScanOverlay: {fileID: 1174077724}
 --- !u!4 &318482229
@@ -1322,7 +1322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &712577216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,7 +2109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1281092620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2378,7 +2378,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1009122339136928, guid: f6d2602888170344d9c4f2fe2d3d8efc, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6d2602888170344d9c4f2fe2d3d8efc, type: 2}
